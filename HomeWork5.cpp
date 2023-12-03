@@ -55,8 +55,10 @@ void task1()
 			max_array = array[j];
 		}
 	}
+	     cout << endl;
 	     cout << "Минимальное число в массиве: " << min_array << endl;    // Выводим на экран найденное минимальное  значение
 		 cout << "Максимальное число в массиве: " << max_array;           // Выводим на экран найденное максимальное значение
+		 cout << endl;
 }
 
 
@@ -73,6 +75,7 @@ void task2()
 	int i = 0;
 	int num;
 	int search;
+	int count = 0;
 	cout << "Введите число: ";
 	cout << "\n\n";
 
@@ -80,24 +83,28 @@ void task2()
 	{
 		cout << i + 1 << "\\" << SIZE << " : ";
 		cin >> array[i];
-
+		
 	}
+	cout << endl;
 	cout << "Введите искомое число: ";
 	cin >> num;
-
+	cout << endl;
 	for (i = 0; i < SIZE; i++)
 	{
+		count++;
 		if (array[i] == num)
 		{
 			cout << "Индекс искомого числа в массиве  i = " << i;
+			cout << endl;
 			i = SIZE;
 		}
 		else if(!(SIZE - i- 1))
 		{
 			cout << "-1";
+			cout << endl;
 		}
 	}
-	
+	cout << "Количество произведенных сравнений за время поиска:  " << count;
 }
 
 
@@ -120,43 +127,48 @@ void task3()
     cout << "\n\n";
 	for (i = 0; i < SIZE; i++)
 	{
-		cout << i + 1 << "\\" << SIZE << " : ";
+		//cout << i + 1 << "\\" << SIZE << " : ";
+		cout << SIZE << "\\" << i + 1 << " :";
 		cin >> array[i];
 
 	}
+	cout << endl;
 	cout << "Введите искомое число: " ;
 	cin >> num;
+	cout << endl;
 	while (left <= right)
 	{
-		count++;
-		int mid = (left + right) / 2; // Серидина массива
+		count++;                           //Счетчик циклов
+		int mid = (left + right) / 2;      // Серидина массива
 		if (num == array[mid])
 		{
 			
-			search = array[mid];
-			index = mid;              // Число найдено
+			search = array[mid];  
+			index = mid;                   // Число найдено
 			
 			break;
 		}
-		if (num < array[mid])         // Если искомое число меньше чем сумма середины массива
+		if (num < array[mid])              // Если искомое число меньше чем сумма середины массива
 		{
-			right = mid - 1;          // Ищем в левой части
+			right = mid - 1;               // Ищем в левой части
 		}
-		else                          // иначе   
+		else                               // иначе   
 		{
-			left = mid + 1;           //  Ищем в правой части
+			left = mid + 1;                //  Ищем в правой части
 		}
-		                     //Счетчик циклов
+		                     
 	}
 	
-	if (search == -1)                 // Проверяем изменилась ли  переменная search 
+	if (search == -1)                      // Проверяем изменилась ли  переменная search 
 	{
-		cout << "-1";                 // Если элемент не найден выводим "-1"    
+		cout << "-1";                     // Если элемент не найден выводим "-1"    
 	}
 	else
 	{
 		cout << "Индекс искомого числа: " << "array[i]" << " = " << index<< endl;
-		cout << "Количество сравнений: "<< count;
+		cout << endl;
+		cout << "Произведенных сравнений за время поиска: = " << count;
+		cout << endl;
 	}
 	return;
 }
@@ -200,11 +212,13 @@ void task4()
 			array[min] = tmp;
 		}
 	}
+	cout << endl;
 	cout << "Упорядоченный массив: ";
 	for (i = 0; i < SIZE; i++)
 	{
 		cout << array[i] << " ";
 	}
+	cout << endl;
 }
 
 //5. Создайте массив из 10 элементов, организуйте ввод значений элементов массива с клавиатуры(целые числа).
@@ -212,11 +226,11 @@ void task4()
 
 void task5()
 {
-	const int SIZE = 5;
+	const int SIZE = 10;
 	int array[SIZE];
 	int i = 0;
 	int j = 0;
-	int temp = 0;                  // Переменная для сохранения переноса
+	int temp = 0;                            // Переменная для сохранения переноса
 	bool flag = 0;
 	int count = 0;
 	cout << "Введите число: ";
@@ -230,56 +244,29 @@ void task5()
 
 	for (i = 0; i < SIZE ; i++)
 	{
-		flag = 0;
+		
 		for (j = 0; j < SIZE - i;j++)
 		{
-			
 			if (array[j] < array[j + 1])     // Если первое число в массиве меньше последующего делаем замену
-
 			{
-				
 				temp = array[j +1 ];
 				array[j+1 ] = array[j];
 				array[j] = temp;
-				
 			}
 		}
-		
-		
     }
-	
+	cout << endl;
+	cout << "Упорядоченный массив: ";
 	for (i = 0; i < SIZE; i++)
 	{
-		cout << array[i] << " ";
-
+	   cout << array[i] << " ";
 	}
-	
-	
-	
-		
-	
-
-	
-
-
+	cout << endl;
 }
 
 
 
 
-//for (i = 0; i < SIZE - 1; i++)
-//{
-//	for (j = 0; j < SIZE - 1; j++)
-//	{
-//		if (array[j] > array[j + 1])     // Если первое число в массиве больше последующего делаем замену
-//		{
-//			temp = array[j];
-//			array[j] = array[j + 1];
-//			array[j + 1] = temp;
-//		}
-//	}
-//
-//}
 
 
 
