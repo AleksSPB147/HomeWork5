@@ -212,10 +212,13 @@ void task4()
 
 void task5()
 {
-	const int SIZE = 10;
+	const int SIZE = 5;
 	int array[SIZE];
 	int i = 0;
-
+	int j = 0;
+	int temp = 0;                  // Переменная для сохранения переноса
+	bool flag = 0;
+	int count = 0;
 	cout << "Введите число: ";
 	cout << "\n\n";
 
@@ -225,13 +228,58 @@ void task5()
 		cin >> array[i];
 	}
 
+	for (i = 0; i < SIZE ; i++)
+	{
+		flag = 0;
+		for (j = 0; j < SIZE - i;j++)
+		{
+			
+			if (array[j] < array[j + 1])     // Если первое число в массиве меньше последующего делаем замену
+
+			{
+				
+				temp = array[j +1 ];
+				array[j+1 ] = array[j];
+				array[j] = temp;
+				
+			}
+		}
+		
+		
+    }
+	
+	for (i = 0; i < SIZE; i++)
+	{
+		cout << array[i] << " ";
+
+	}
+	
+	
+	
+		
+	
+
+	
+
 
 }
 
 
 
 
-
+//for (i = 0; i < SIZE - 1; i++)
+//{
+//	for (j = 0; j < SIZE - 1; j++)
+//	{
+//		if (array[j] > array[j + 1])     // Если первое число в массиве больше последующего делаем замену
+//		{
+//			temp = array[j];
+//			array[j] = array[j + 1];
+//			array[j + 1] = temp;
+//		}
+//	}
+//
+//}
 
 
 
